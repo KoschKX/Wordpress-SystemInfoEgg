@@ -1,0 +1,186 @@
+/* GLOBALS */
+
+	:root{
+		--colorA: #cacaca;
+	    --colorB: #aaaaaa;
+	}
+
+
+/* Main */
+	
+	.systeminfoegg #content_wrap{
+		text-align: center;
+		overflow: hidden;
+
+	    border: 1px solid var(--colorB);
+	    border-radius: 12px;
+	}
+
+	.systeminfoegg #main{
+	    width: calc(100% - 4em);
+	    text-align: center;
+	    display: inline-grid;
+	    align-items: end;
+	    align-content: stretch;
+	    padding: 2em;
+	}
+
+	.systeminfoegg #main.initialized{
+		visibility: visible;
+	}
+
+	.systeminfoegg #lc-notice-container {
+	   	display: none !important;
+	}
+
+/* Form */
+
+	.systeminfoegg #controls{
+		display: flex;
+    	flex-direction: row;
+    	flex-wrap: wrap;
+	}
+
+	.systeminfoegg section{
+		width: calc(100% - 2px - 3em);
+	    float: left;
+	    border: 1px solid var(--colorB);
+	    border-radius: 12px;
+	    margin: 0.5em;
+	    padding: 1em;
+	    padding-top: 1.5em;
+
+	    text-align: left;
+	}
+
+	.systeminfoegg .title{
+		text-transform: uppercase;
+	    font-weight: normal;
+	    font-size: 1em;
+	    padding: 0;
+
+	    width: 100%;
+	    text-align: center;
+
+	    position: relative;
+	    top: -1.4em;
+
+	    color: var(--colorB);
+	}
+	.systeminfoegg .title::before,
+	.systeminfoegg .title::after{
+		content: "-";
+		margin-left: 0.5em;
+		margin-right: 0.5em;
+	}
+
+	.systeminfoegg label{
+		margin-right: 0.5em;
+		font-weight: 150;
+	}
+
+	.systeminfoegg .control{
+		display: inline-flex;
+	    flex-direction: column;
+	    align-items: center;
+	    padding: 0.5em;
+
+	    width: 100%;
+	}
+
+	.systeminfoegg input[type=text]{
+    	width: 50%;
+	}
+	
+	.systeminfoegg .range_value{
+		margin-left: 0.5em;
+	}
+	.systeminfoegg .range_value::before{
+		content: "(";
+	}
+	.systeminfoegg .range_value::after{
+		content: ")";
+	}
+
+	/* .systeminfoegg .range_value, */
+	.systeminfoegg button,
+	.systeminfoegg input[type=select]{
+		border-radius: 3px;
+		border: 1px solid transparent;
+		border-color: var(--colorB);
+	}
+
+	.systeminfoegg input[type=radio],
+	.systeminfoegg input[type=checkbox]{
+		margin: 0 1px
+	}
+
+	.systeminfoegg input[type=submit]{
+		margin-left: 0.5em;
+		margin-right: 0.5em;
+	}
+
+	.systeminfoegg #buttons{
+		flex-direction: row;
+	}
+
+/* Messages */
+
+	.systeminfoegg #kosch_message .message{
+		margin-top: 1.5em;
+		padding: 1em;
+	}
+	.systeminfoegg #kosch_message .message.normal{
+		color: peru;
+		background: bisque;
+	}
+	.systeminfoegg #kosch_message .message.success{
+	    color: darkgreen;
+	    background: lightgreen;
+	}
+	.systeminfoegg #kosch_message .message.error{
+		color: darkred;
+		background: lightcoral;
+	}
+
+/* LOADER */
+
+	.systeminfoegg #loader{
+		margin: auto;
+	}
+
+	.systeminfoegg .loading #controls,
+	.systeminfoegg .loading #kosch_message{
+		display: none;
+	}
+	.systeminfoegg .loading #loader{
+		display: block !important;
+	}
+
+/* LAYOUT */
+
+	.systeminfoegg .spacer{
+		height: 2em;
+		width: 100%;
+	}
+
+	.systeminfoegg .center{
+		text-align: center;
+		justify-content: center;
+	}
+
+	.systeminfoegg .full{
+		width: 100%;
+	}
+
+	.systeminfoegg .clear{
+		clear: both;
+	}
+
+/* RESPONSIVE */
+
+	@media  (max-width: 800px) {
+		.systeminfoegg section{
+			width: calc(100% - 2px - 3em);
+		}
+	}

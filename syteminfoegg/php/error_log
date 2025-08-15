@@ -1,0 +1,6 @@
+[20-Aug-2021 20:08:29 UTC] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/ddflimport2/public_html/wp-content/plugins/system-info-egg/php/send_report.php on line 8
+[20-Aug-2021 20:09:11 UTC] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/ddflimport2/public_html/wp-content/plugins/system-info-egg/php/send_report.php on line 8
+[20-Aug-2021 20:09:38 UTC] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/ddflimport2/public_html/wp-content/plugins/system-info-egg/php/send_report.php on line 8
+[20-Aug-2021 20:10:01 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/ddflimport2/public_html/wp-content/plugins/system-info-egg/php/send_report.php on line 8
+[20-Aug-2021 20:10:07 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/ddflimport2/public_html/wp-content/plugins/system-info-egg/php/send_report.php on line 8
+[20-Aug-2021 20:24:34 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/ddflimport2/public_html/wp-content/plugins/system-info-egg/php/send_report.php on line 14

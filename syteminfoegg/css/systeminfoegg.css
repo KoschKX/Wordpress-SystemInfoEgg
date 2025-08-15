@@ -1,0 +1,107 @@
+/* SYSTEM */
+
+	#system_egg{
+		display: none;
+		width: calc(100% - 2em);
+	    bottom: 0;
+	    margin: 0 !important;
+	    text-align: center !important;
+	    opacity: 0.25;
+
+	    padding: 1em;
+
+	    background: #000;
+	}
+	#system_egg.initialized{
+		display: inline-block !important;
+	}
+	#system_egg a{
+	    color: #fff !important;
+	    cursor: pointer !important;
+	}
+
+	.sysinfo_target.click_block{
+		pointer-events: none;
+	}
+
+	i[class^="sysicon-"], #footer i[class*=" sysicon-"] {
+		font-size: 1.5em;
+		width: 1.25em;
+		display: inline-block;
+	}
+	i[class^="sysicon-"]:before,#footer i[class*=" sysicon-"]:before {
+		display: flex;
+    	justify-content: center;
+	}
+
+	@media (max-width: 991px)
+    {   
+    	#system_egg{
+    		position: relative;
+    	}
+    }
+
+/* DIALOG */
+
+	div.jconfirm-title-c{
+		text-align: center;
+	}
+
+	.jconfirm .jconfirm-box{
+		border: 1px solid var(--primary);
+	}
+
+	.jconfirm.jconfirm-light .jconfirm-bg, .jconfirm.jconfirm-white .jconfirm-bg {
+	    background-color: var(--tertiary) !important;
+	    opacity: .5 !important;
+	}
+	.jconfirm .jconfirm-box .jconfirm-buttons button.btn-default {
+		border: 1px solid var(--primary);
+	    color: var(--primary) !important;
+	    border-radius: 100px;
+	    background-color: transparent !important;
+	}
+	.jconfirm .jconfirm-box .jconfirm-buttons button.btn-default:hover {
+		border: 1px solid var(--primary);
+	    color: var(--white) !important;
+	    background-color: var(--primary) !important;
+	}
+	.jconfirm-content textarea{
+		overflow: hidden;
+	    width: 100% !important;
+	    min-height: 10em !important;
+	}
+
+	.jconfirm-holder .col-md-4 {
+	    -webkit-flex: 0 0 100%;
+	    -ms-flex: 0 0 100%;
+	    flex: 0 0 100%;
+	    max-width: 100%;
+	}
+
+	.jconfirm .jconfirm-box div.jconfirm-content-pane {
+		overflow-y: hidden;
+	    display: flex;
+	    background: #fff;
+	    border-radius: 4px;
+	    position: relative;
+	    outline: 0;
+	    padding: 15px 15px 0;
+	    overflow: hidden;
+	    margin-left: auto;
+	    margin-right: auto;
+	    align-content: center;
+	    flex-wrap: wrap;
+	    flex-direction: column;
+	    justify-content: center;
+	    align-items: center;
+	}
+
+	.jconfirm .jconfirm-box div.jconfirm-content-pane .jconfirm-content {
+		overflow: hidden !important;
+		width: 100%;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    align-content: center;
+	}

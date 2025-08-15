@@ -1,0 +1,150 @@
+@font-face {
+  font-family: 'systeminfoegg';
+  src:  url('../fonts/systeminfoegg.eot?gbiy92');
+  src:  url('../fonts/systeminfoegg.eot?gbiy92#iefix') format('embedded-opentype'),
+    url('../fonts/systeminfoegg.ttf?gbiy92') format('truetype'),
+    url('../fonts/systeminfoegg.woff?gbiy92') format('woff'),
+    url('../fonts/systeminfoegg.svg?gbiy92#systeminfoegg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="sysicon-"], [class*=" sysicon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'systeminfoegg' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sysicon-ios:before {
+  content: "\e905";
+}
+.sysicon-user:before {
+  content: "\e900";
+}
+.sysicon-user-secret:before {
+  content: "\e901";
+}
+.sysicon-settings_ethernet:before {
+  content: "\e902";
+}
+.sysicon-network_wifi:before {
+  content: "\e903";
+}
+.sysicon-network_cell:before {
+  content: "\e904";
+}
+.sysicon-library:before {
+  content: "\e921";
+}
+.sysicon-qrcode:before {
+  content: "\e938";
+}
+.sysicon-cart:before {
+  content: "\e93a";
+}
+.sysicon-location:before {
+  content: "\e948";
+}
+.sysicon-compass:before {
+  content: "\e949";
+}
+.sysicon-bell:before {
+  content: "\e951";
+}
+.sysicon-display:before {
+  content: "\e956";
+}
+.sysicon-mobile:before {
+  content: "\e958";
+}
+.sysicon-tablet:before {
+  content: "\e95a";
+}
+.sysicon-bubbles2:before {
+  content: "\e96d";
+}
+.sysicon-bug:before {
+  content: "\e999";
+}
+.sysicon-glass:before {
+  content: "\e9a0";
+}
+.sysicon-sphere:before {
+  content: "\e9c9";
+}
+.sysicon-earth:before {
+  content: "\e9ca";
+}
+.sysicon-eye:before {
+  content: "\e9ce";
+}
+.sysicon-eye-blocked:before {
+  content: "\e9d1";
+}
+.sysicon-cancel-circle:before {
+  content: "\ea0d";
+}
+.sysicon-blocked:before {
+  content: "\ea0e";
+}
+.sysicon-cross:before {
+  content: "\ea0f";
+}
+.sysicon-checkmark:before {
+  content: "\ea10";
+}
+.sysicon-wordpress:before {
+  content: "\eab4";
+}
+.sysicon-tux:before {
+  content: "\eabd";
+}
+.sysicon-appleinc:before {
+  content: "\eabe";
+}
+.sysicon-finder:before {
+  content: "\eabf";
+}
+.sysicon-android:before {
+  content: "\eac0";
+}
+.sysicon-windows:before {
+  content: "\eac1";
+}
+.sysicon-windows8:before {
+  content: "\eac2";
+}
+.sysicon-chrome:before {
+  content: "\ead9";
+}
+.sysicon-firefox:before {
+  content: "\eada";
+}
+.sysicon-IE:before {
+  content: "\eadb";
+}
+.sysicon-edge:before {
+  content: "\eadc";
+}
+.sysicon-safari:before {
+  content: "\eadd";
+}
+.sysicon-opera:before {
+  content: "\eade";
+}
+.sysicon-html-five:before {
+  content: "\eae4";
+}
+.sysicon-html-five2:before {
+  content: "\eae5";
+}
