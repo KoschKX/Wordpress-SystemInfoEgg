@@ -328,6 +328,7 @@ function detectNetwork(obj,sys){
 
 function systeminfoegg_copy(text) {
 	var result='';
+	text = text.replace(/<br\s*\/?>/gi, "\r\n");
     if (window.clipboardData && window.clipboardData.setData) {
         result=window.clipboardData.setData("Text", text);
     }
