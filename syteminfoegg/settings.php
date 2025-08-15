@@ -38,7 +38,7 @@
 
         'messages|thankyou|Thank You.|text|Thank you. The report has been sent.',
         'messages|error|Error|text|An error has occurred. The report has been sent.',
-        'messages|decribe|Describe|text|Please describe the issue.',
+        'messages|describe|Describe|text|Please describe the issue.',
         'messages|required|Required|text|A description is required.',
         'messages|copied|Copied|text|System information copied to clipboard.',
         'messages|copy_failed|Copy Failed|text|Failed to copy to clipboard.',

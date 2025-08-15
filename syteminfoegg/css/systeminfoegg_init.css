@@ -1,0 +1,6 @@
+.sysinfo_target{
+	cursor: default;
+}
+.sysinfo_target.pointer{
+	cursor: pointer;
+}

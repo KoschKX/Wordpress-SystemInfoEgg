@@ -1,37 +1,16 @@
 var mailto=false;
 
-var systeminfoegg_target;
-var systeminfoegg_container;
-var systeminfoegg_delay;
-var systeminfoegg_sitename;
-var systeminfoegg_siteversion;
-var systeminfoegg_title;
-var systeminfoegg_page;
-var systeminfoegg_contact;
-var systeminfoegg_userid;
-
-var systeminfoegg_status;
-var systeminfoegg_network;
-
-
 var systeminfoegg_timeout = 0;
 var systeminfoegg_hasstyle = false;
 var systeminfoegg_shown = false;
 
+var systeminfoegg_cartcount;
+var systeminfoegg_carttotal;
 
 function go(){
 
-	systeminfoegg_sitename=systeminfoegg_vars['sitename'];
-	systeminfoegg_siteversion=systeminfoegg_vars['siteversion'];
-	systeminfoegg_contact=systeminfoegg_vars['setup_siteversion'];
-
-	systeminfoegg_page=jQuery(location).attr('href');
-	systeminfoegg_title=jQuery(document).attr('title');
-
-	systeminfoegg_userid=systeminfoegg_vars['userid'];
-	systeminfoegg_userlogin=systeminfoegg_vars['userlogin'];
-	systeminfoegg_username=systeminfoegg_vars['username'];
-	systeminfoegg_useremail=systeminfoegg_vars['useremail'];
+	systeminfoegg_vars['title'] = jQuery(location).attr('href');
+	systeminfoegg_vars['page'] = jQuery(document).attr('title');
 
 	//systeminfoegg_cartcount=systeminfoegg_vars._cartcount;
 	//systeminfoegg_carttotal=systeminfoegg_vars._carttotal;
@@ -47,17 +26,8 @@ function go(){
 			//observer.disconnect();
 		}
 
-	systeminfoegg_button_okay=systeminfoegg_vars['button_okay'];
-	systeminfoegg_button_cancel=systeminfoegg_vars['button_cancel'];
-	systeminfoegg_button_send=systeminfoegg_vars['button_send'];
-	systeminfoegg_button_copy=systeminfoegg_vars['button_copy'];
-	systeminfoegg_button_report=systeminfoegg_vars['button_report'];
 
-	systeminfoegg_message_thankyou=systeminfoegg_vars['message_thankyou'];
-	systeminfoegg_message_describe=systeminfoegg_vars['message_describe'];
-	systeminfoegg_message_required=systeminfoegg_vars['message_required'];
-	systeminfoegg_message_copied=systeminfoegg_vars['message_copied'];
-	systeminfoegg_message_copyfailed=systeminfoegg_vars['message_copy_failed'];
+	console.log(systeminfoegg_vars);
 
 	detect_system();
 	system_show();
@@ -65,7 +35,6 @@ function go(){
 }
 
 go();
-
 
 function system_check_cart(){
 	if(jQuery('#mini-cart').length){
@@ -78,8 +47,6 @@ function system_check_cart(){
 		}
 	}
 }
-
-
 
 function system_show(){
 	jQuery('#system_egg').addClass('initialized');
@@ -94,10 +61,7 @@ function detect_system(){
 
 	jQuery('#system_egg a').on('click', function(e) {
 		var systeminfoegg_str=jQuery('#system_egg').attr('data-systeminfo');
-		//alert(systeminfoegg_copy());
 		show_systeminfoegg_dialog(systeminfoegg_str);
-
-		//jQuery('#system_egg').removeClass('visible');
 	});
 
 	systeminfoegg_arr.push('Browser: '+detectBrowser(obj,sys));
@@ -117,13 +81,13 @@ function show_systeminfoegg_dialog(str){
 	    content: str,
 	    buttons: {
 	        Ok: {
-	        	text: systeminfoegg_button_okay,
+	        	text: systeminfoegg_vars['button_okay'],
 	        	action: function () {
 	        	
 	        	}
 	    	},
   			Copy: {
-  				text: systeminfoegg_button_copy,
+  				text: systeminfoegg_vars['button_copy'],
   				action: function () {
 		            var copy_results=systeminfoegg_copy(str);
 					jQuery.confirm({
@@ -138,7 +102,7 @@ function show_systeminfoegg_dialog(str){
 				}
 	        },
 	        Report: {
-	        	text: systeminfoegg_button_report,
+	        	text: systeminfoegg_vars['button_report'],
 	        	action: function () {
 	        		show_bug_form(str);
 	        	}
@@ -150,25 +114,25 @@ function show_systeminfoegg_dialog(str){
 function show_bug_form(str){
 	jQuery.confirm({
 		title: '<i class="sysicon-bug"></i>',
-	    content: '<div style="text-align:center;">'+systeminfoegg_message_describe+'</div><br /><br /><textarea id="bug_report"></textarea>',
+	    content: '<div style="text-align:center;">'+systeminfoegg_vars['messages_describe']+'</div><br /><br /><textarea id="bug_report"></textarea>',
 	    buttons: {
 	    	Cancel: {
-	    		text: systeminfoegg_button_cancel,
+	    		text: systeminfoegg_vars['button_cancel'],
 	    		action: function () {
 	    			show_systeminfoegg_dialog(str);
 	    		}
 	    	},
 	        Send: {
-	        	text: systeminfoegg_button_send,
+	        	text: systeminfoegg_vars['button_send'],
 	        	action: function () {
 		        	var bug=jQuery('#bug_report').val();
 		        	if(bug==''){
 						jQuery.confirm({
 			        		title: '',
-						    content: '<div style="text-align:center;">'+systeminfoegg_message_required+'</div>',
+						    content: '<div style="text-align:center;">'+systeminfoegg_vars['messages_required']+'</div>',
 						    buttons: {
 						        Ok: {
-						        	text: systeminfoegg_button_okay,
+						        	text: systeminfoegg_vars['button_okay'],
 						        	action: function () {
 							        	show_bug_form(str);
 							        }
@@ -194,31 +158,31 @@ function send_report(str,bug){
 	str=str.replaceAll('<br />',br);
 
 	var user='-User-'+br+'Anonymous';
-	if(systeminfoegg_userid!='0'){
+	if(systeminfoegg_vars['userid']!='0'){
 		cart='Cart: empty';
 		if(systeminfoegg_cartcount>0){
 			cart='Cart: '+systeminfoegg_cartcount+' ['+systeminfoegg_carttotal+']';
 		}
-		user='-User-'+br+'Login: '+systeminfoegg_userlogin+' ['+systeminfoegg_userid+']'+br+'Name: '+systeminfoegg_username+br+'Email: '+systeminfoegg_useremail+br+'Status: '+ systeminfoegg_status+br+cart;
+		user='-User-'+br+'Login: '+systeminfoegg_vars['userlogin']+' ['+systeminfoegg_vars['userid']+']'+br+'Name: '+systeminfoegg_vars['username']+br+'Email: '+systeminfoegg_vars['useremail']+br+'Status: '+ systeminfoegg_vars['status']+br+cart;
 	}
 
 	var network='-Network-'+br+systeminfoegg_network.replaceAll('<br />',br);
 
-	var page='-Page-'+br+systeminfoegg_title+' ['+systeminfoegg_page+'](Wordpress '+systeminfoegg_siteversion+')';
+	var page='-Page-'+br+systeminfoegg_vars['title']+' ['+systeminfoegg_vars['page']+'](Wordpress '+systeminfoegg_vars['siteversion']+')';
 	var sysinfo='-System Info-'+br+str;
 	var issue='-Issue-'+br+bug;
 
 	if(mailto){
-		window.location.href = systeminfoegg_sanitize('mailto:'+systeminfoegg_contact+'?subject=Bug report ['+systeminfoegg_sitename+']&body='+user+br+br+page+br+br+sysinfo+br+br+network+br+br+issue+br+br);
+		window.location.href = systeminfoegg_sanitize('mailto:'+systeminfoegg_vars['contact']+'?subject=Bug report ['+systeminfoegg_vars['sitename']+']&body='+user+br+br+page+br+br+sysinfo+br+br+network+br+br+issue+br+br);
 	}else{
-		var subject='Bug report ['+systeminfoegg_sitename+']';
+		var subject='Bug report ['+systeminfoegg_vars['sitename']+']';
 		var message=user+br+br+page+br+br+sysinfo+br+br+network+br+br+issue+br+br;
 		jQuery.ajax({
 			type: "POST",
 			url: systeminfoegg_vars.resfolder+"/php/send_report.php",
 			data: { subject: subject, message: message }
 		}).done(function( result ) {
-			var end_message=systeminfoegg_message_thankyou;
+			var end_message=systeminfoegg_vars['messages_thankyou'];
 			if(result){
 				end_message=result;
 			}
@@ -227,7 +191,7 @@ function send_report(str,bug){
 			    content: '<div style="text-align:center;">'+end_message+'</div>',
 			    buttons: {
 			        Ok: {
-			        	text: systeminfoegg_button_okay,
+			        	text: systeminfoegg_vars['button_okay'],
 			        	action: function () {
 			        	}
 			    	}
@@ -237,44 +201,64 @@ function send_report(str,bug){
 	}
 }
 
-function detectOS(obj,sys){
-	var out='';
-	if(obj.hasClass('win')){
+function detectOS(obj,sys,htmlClass=false){
+	let out='';
+	let os='';
+
+	const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    if (os=='' && /windows phone/i.test(userAgent)) { os = "Windows Phone"; }
+    if (os=='' && /windows/i.test(userAgent)) {  os = "Windows"; }
+    if (os=='' && /macintosh|mac os x/i.test(userAgent)) { os = "MacOS"; }
+    if (os=='' && /linux/i.test(userAgent)) { os = "Linux"; }
+    if (os=='' && /android/i.test(userAgent)) { os = "Android"; }
+    if (os=='' && /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) { os = "iOS"; }
+	if (os==''){ os = "Unknown OS"};
+
+	if(htmlClass){ obj.addClass(os); }
+
+	if(os=='Windows Phone'){
 		sys.append('<i class="sysicon-windows8"></i>');
-		out='Windows';
 	};
-	if(obj.hasClass('mac')){
+	if(os=='Windows'){
+		sys.append('<i class="sysicon-windows8"></i>');
+	};
+	if(os=='MacOS'){
 		sys.append('<i class="sysicon-appleinc"></i>');
-		out='Mac OS';
 	};
-	if(obj.hasClass('linux')&&navigator.userAgent.indexOf('Android') == -1){
+	if(os=='Linux'){
 		sys.append('<i class="sysicon-tux"></i>');
-		out='Linux';
 	};
-	if(obj.hasClass('ios')){
+	if(os=='iOS'){
 		sys.append('<i class="sysicon-ios"></i>');
-		out='iOS';
 	};
-	if(obj.hasClass('linux')&&navigator.userAgent.indexOf('Android') !== -1){
+	if(os=='Android'){
 		sys.append('<i class="sysicon-android"></i>');
-		out='Android';
 	};
-	return out;
+
+	return os;
 }
 
-function detectDevice(obj,sys){
-	var out='';
-	if(obj.hasClass('mobile')){
+function detectDevice(obj,sys,htmlClass=false){
+	let out='';
+	let dev='';
+
+    if (dev=='' && /android/i.test(navigator.userAgent)) { if (/mobile/i.test(navigator.userAgent)) { dev = "Phone"; } else { dev = "Tablet";}}
+    if (dev=='' && /iPad|Tablet/i.test(navigator.userAgent)) {dev = "Tablet";}
+    if (dev=='' && /iPhone|iPod/i.test(navigator.userAgent)) {dev = "Phone";}
+    const width = Math.max(window.screen.width, window.screen.height);
+    if (dev=='' && width <= 767) { dev = "Phone"; } else if (dev=='' && width <= 1024) { dev = "Tablet"; } else { dev = "Desktop"; }
+    if (dev==''){ dev = 'Uknown Device'; }
+    
+    if(htmlClass){ obj.addClass(dev); }
+
+	if(dev=='Phone'){
 		sys.append('<i class="sysicon-mobile"></i>');
-		out='Mobile';
-	}else if(!obj.hasClass('no-touch')){
+	}else if(dev=='Tablet'){
 		sys.append('<i class="sysicon-tablet"></i>');
-		out='Tablet';
-	}else{
+	}else if(dev=='Desktop'){
 		sys.append('<i class="sysicon-display"></i>');
-		out='Desktop';
 	}
-	return out;
+	return dev;
 }
 
 
@@ -307,7 +291,7 @@ function detectBrowser(obj,sys){
 
 function detectStatus(obj,sys){
 	var out='';
-	if(systeminfoegg_userid=='0'){
+	if(systeminfoegg_vars['userid']=='0'){
 		out='Anonymous';
 		sys.append('<i class="sysicon-user-secret"></i>');
 	}else{
@@ -354,11 +338,11 @@ function systeminfoegg_copy(text) {
         document.body.appendChild(textarea);
         textarea.select();
         try {
-        	result=systeminfoegg_message_copied;
+        	result=systeminfoegg_vars['messages_copied'];
             document.execCommand("copy");
         }
         catch (ex) {
-            result=console.warn(systeminfoegg_message_copyfailed, ex);
+            result=console.warn(systeminfoegg_vars['messages_copy_failed'], ex);
             return false;
         }
         finally {

@@ -11,6 +11,8 @@
 			$systeminfoegg_target=get_option('systeminfoegg_setup_target');
 			if($systeminfoegg_target!=null&&$systeminfoegg_target!=''){ 
 				$resfolder=plugin_dir_url( __FILE__ );
+
+				wp_enqueue_style('systeminfoegg-style', $resfolder . '/css/systeminfoegg_init.css');
 		    	
 		    	wp_enqueue_script('systeminfoegg-script', $resfolder.'/js/systeminfoegg.js', array('jquery'), '', true);
 				
@@ -30,6 +32,12 @@
 				$section_options['username'] = $user->first_name.' '.$user->last_name;
 				$section_options['userlogin'] = $user->user_login;
 				$section_options['useremail'] = $user->user_email;
+
+				$section_options['button_okay'] = get_option('systeminfoegg_button_okay');
+				$section_options['button_cancel'] = get_option('systeminfoegg_button_cancel');
+				$section_options['button_send'] = get_option('systeminfoegg_button_send');
+				$section_options['button_copy'] = get_option('systeminfoegg_button_copy');
+				$section_options['button_report'] = get_option('systeminfoegg_button_report');
 
 		    	wp_localize_script('systeminfoegg-script', 'systeminfoegg_vars', $section_options);
 
